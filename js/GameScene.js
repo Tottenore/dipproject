@@ -99,6 +99,22 @@ class GameScene extends Phaser.Scene {
                 this.players.delete(data.id);
             }
         });
+        
+        socket.on('existing_players', (players) => {
+        players.forEach(playerData => {
+            if (!this.players.has(playerData.id) && playerData.id !== socket.id) {
+                const player = new Player(
+                    this,
+                    playerData.x,
+                    playerData.y,
+                    'character',
+                    playerData.id,
+                    playerData.nickname
+                );
+                this.players.set(playerData.id, player);
+            }
+        });
+});
     }
 
     setupCollisions() {
