@@ -114,7 +114,6 @@ class GameScene extends Phaser.Scene {
                 this.players.set(playerData.id, player);
             }
         });
-});
     }
 
     setupCollisions() {
