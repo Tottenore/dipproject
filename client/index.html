@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gather Clone</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        #game-container {
+            position: relative;
+        }
+        #login-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        .hidden {
+            display: none !important;
+        }
+        #debug-info {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 10px;
+            font-family: monospace;
+            font-size: 12px;
+            z-index: 2000;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="debug-info">Debug Info</div>
+    <div id="game-container">
+        <div id="login-overlay">
+            <input type="text" id="nickname" placeholder="Enter your nickname">
+            <button onclick="window.createRoom()">Create Room</button>
+            <button onclick="window.joinRoom()">Join Room</button>
+        </div>
+    </div>
+
+    <!-- Загрузка скриптов в правильном порядке -->
+    <script src="https://cdn.socket.io/4.5.1/socket.io.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
+    
+    <!-- Сначала загружаем классы сцен -->
+    <script src="/js/scenes/LoginScene.js"></script>
+    <script src="/js/scenes/RoomScene.js"></script>
+    <script src="/js/scenes/Player.js"></script>
+    <script src="/js/scenes/GameScene.js"></script>
+    
+    <!-- Затем конфигурацию -->
+    <script src="/js/config.js"></script>
+    
+    <!-- И наконец основной файл игры -->
+    <script src="/js/game.js"></script>
+</body>
+</html>

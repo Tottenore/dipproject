@@ -1,0 +1,42 @@
+<style>
+    .login-form {
+        background: rgba(0, 0, 0, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+        color: white;
+    }
+    .form-group {
+        margin: 10px 0;
+    }
+    input[type="text"] {
+        width: 200px;
+        padding: 5px;
+        border-radius: 5px;
+    }
+    button {
+        background: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background: #45a049;
+    }
+</style>
+<div class="login-form">
+    <div class="form-group">
+        <label for="nickname">Nickname:</label><br>
+        <input type="text" id="nickname" name="nickname" required>
+    </div>
+    <div class="form-group">
+        <label for="roomId">Room ID:</label><br>
+        <input type="text" id="roomId" name="roomId" required>
+    </div>
+    <div class="form-group">
+        <input type="checkbox" id="createRoom" name="createRoom">
+        <label for="createRoom">Create new room</label>
+    </div>
+    <button name="loginButton" type="button">Join Game</button>
+</div>
